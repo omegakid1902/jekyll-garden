@@ -43,5 +43,3 @@ defaults:
       path: "_notes/**/*.md"
     values:
       layout: "note"
-
-theme: jekyll-theme-cayman
