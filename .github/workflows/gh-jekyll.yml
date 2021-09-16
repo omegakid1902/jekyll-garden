@@ -3,7 +3,10 @@ name: Jekyll GitHub Pages publication
 on:
   push:
     branches:
-      - 'jekyll-digital-garden'
+      - main
+
+  repository_dispatch:
+    types: [update_zettelkasten]
     
 jobs:
   jekyll:
@@ -23,9 +26,9 @@ jobs:
     - uses: jeffreytse/jekyll-deploy-action@v0.3.0
       with:
         provider: 'github'
-        token: ${{ secrets.GATSBY_SECRET  }} # It's your Personal Access Token(PAT)
+        token: ${{ secrets.JEKYLL_SECRET  }} # It's your Personal Access Token(PAT)
         repository: ''             # Default is current repository
-        branch: 'gh-pages-jekyll-digital-garden'         # Default is gh-pages for github provider
+        branch: 'gh-pages'         # Default is gh-pages for github provider
         jekyll_src: './'           # Default is root directory
         jekyll_cfg: '_config.yml'  # Default is _config.yml
         jekyll_baseurl: ''         # Default is according to _config.yml
